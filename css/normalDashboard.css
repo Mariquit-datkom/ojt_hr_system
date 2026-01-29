@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 70px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-left, .header-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.company-logo, .user-avatar {
+    height: 60px;
+    width: auto;
+}
+
+.dashboard-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.username {
+    font-size: 1rem;
+}

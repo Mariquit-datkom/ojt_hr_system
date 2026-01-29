@@ -1,5 +1,6 @@
 <?php
     require 'dbConfig.php';
+    session_start();
 
     $confirmationMessage = "";
 
@@ -13,9 +14,19 @@
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['password'])) {
-            $redirectURL = 'dashboard.php';
-            header("Location: $redirectURL");
-            exit();
+
+            $_SESSION['username'] = $user['username'];
+
+            if ($user['username'] === 'admin') {
+                $redirectURL = 'adminDashboard.php';
+                header("Location: $redirectURL");
+                exit();
+            } else {
+                $redirectURL = 'normalDashboard.php';
+                header("Location: $redirectURL");
+                exit();
+            }
+            
         } else {
             $confirmationMessage = "<p style='color: red;'>Invalid username or password.</p>";
         }

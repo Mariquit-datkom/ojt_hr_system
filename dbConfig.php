@@ -6,7 +6,10 @@
     $charset = 'utf8mb4';
     $collate = 'utf8mb4_general_ci';
 
-    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    $adminUser = 'admin';
+    $adminPw = '$2y$10$9aJAuuKBJURUihM0jKI/gepStTB/KZ5rAlzn9j.H/X3ReJTBhPGH.';
+
+    $dsn = "mysql:host=$host;charset=$charset";
 
     try {
         $pdo = new PDO($dsn, $user, $password);
@@ -22,6 +25,16 @@
         )";
 
         $pdo->exec($sql);
+
+        $checkAdminSql = "SELECT COUNT(*) FROM users WHERE username = :username";
+        $checkAdmin = $pdo->prepare($checkAdminSql);
+        $checkAdmin->execute(['username' => $adminUser]);
+
+        if ($checkAdmin->fetchColumn() == 0) {
+            $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+            $sql = $pdo->prepare($sql);
+            $sql->execute(['username' => $adminUser, 'password' => $adminPw]);
+        }
     
     } catch (PDOException $e) {
         die("Connection failed: ". $e->getMessage());
