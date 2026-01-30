@@ -44,7 +44,7 @@
         <div class="nav-links">
             <a href="traineeList.php" class="nav-item" data-text="Trainee List">Trainee List</a>
             <a href="requestList.php" class="nav-item" data-text="Requests">Requests</a>
-            <a href="registerUser.php" class="nav-item" data-text="Register User">Register User</a>
+            <a href="registerIntern.php" class="nav-item" data-text="Register Intern">Register Intern</a>
         </div>
     </nav>
 
