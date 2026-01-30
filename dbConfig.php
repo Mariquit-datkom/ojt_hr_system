@@ -42,9 +42,10 @@
             intern_course varchar(50) NOT NULL, 
             intern_school varchar(50) NOT NULL,
             intern_dept varchar(30) NOT NULL, 
-            total_hours int(5) NOT NULL, 
+            total_hours_needed int(5) NOT NULL, 
             accumulated_hours int(5) NOT NULL, 
-            remaining_hours int(5) NOT NULL 
+            remaining_hours int(5) NOT NULL,
+            school varchar(100) NOT NULL
         )";
 
         $pdo->exec($sql);

@@ -13,6 +13,12 @@
 
     $currentUser = $_SESSION['username'];
     $currentPage = basename($_SERVER['PHP_SELF']);
+
+    $confirmationMessage = "";
+    if (isset($_SESSION['accinfo_msg'])) {
+        $confirmationMessage = $_SESSION['accinfo_msg'];
+        unset($_SESSION['accinfo_msg']); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +70,10 @@
     </nav>
 
     <div class="acc-info-container">
-        <h2 class="form-title">Account Information</h2>
+        <div class="form-title-container">
+            <h2 class="form-title">Account Information</h2>
+            <?php echo $confirmationMessage ?>
+        </div>
         <form action="accInfoAuth.php" method="POST" autocomplete="off">
             <div class="row">
                 <div class="form-group">
@@ -97,16 +106,19 @@
             <div class="row">
                 <div class="form-group">
                     <label for="total-hours-needed" class="form-label">Total Hours Needed: </label>
-                    <input type="number" name="total-hours-needed" id="total-hours-needed" class="general-input hours-input" required="required">
+                    <input type="text" name="total-hours-needed" id="total-hours-needed" class="general-input hours-input" required="required">
                 </div>
                 <div class="form-group">
                     <label for="accumulated-hours" class="form-label">Accumulated Hours: </label>
-                    <input type="number" name="accumulated-hours" id="accumulated-hours" class="general-input hours-input" required="required">
+                    <input type="text" name="accumulated-hours" id="accumulated-hours" class="general-input hours-input" required="required">
                 </div>
                 <div class="form-group">
-                    <label for="remaining-hours" class="form-label">Remaining Hours: </label>
-                    <input type="number" name="remaining-hours" id="remaining-hours" class="general-input hours-input" required="required">
+                    <label for="school" class="form-label">School: </label>
+                    <input type="text" name="school" id="school" class="general-input school-input" required="required">
                 </div>
+            </div>
+            <div class="btn-submit-container">
+                <input type="submit" value="Save Account Information" class="btn-submit">
             </div>
         </form>
     </div>
