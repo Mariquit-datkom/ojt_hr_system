@@ -1,29 +1,18 @@
 <?php
 
     require 'dbConfig.php';
+    session_start();
+
+
+    if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
+        header("Location: loginUser.php");
+        exit();
+    }   
 
     $confirmationMessage = "";
-   
-    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-        $username = $_POST['username'];
-        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-
-        $checkstmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
-        $checkstmt->execute(['username' => $username]);
-        $usernameExists = $checkstmt->fetchColumn();
-
-        if ($usernameExists) {
-            $confirmationMessage = "<p style='color: red;'>Username already taken. Please choose another.</p>";
-        } else {
-            $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
-            $stmt = $pdo->prepare($sql);
-        
-            if ($stmt->execute(['username' => $username, 'password' => $password])) {
-                $confirmationMessage = "<p style = 'color: green;'>Registration successful! Redirecting to Log in..</p>";
-            } else {
-                $confirmationMessage = "<p style = 'color: red;'>Error during registration.</p>";
-            }
-        }
+    if (isset($_SESSION['registration_msg'])) {
+        $confirmationMessage = $_SESSION['registration_msg'];
+        unset($_SESSION['registration_msg']); 
     }
 ?>
 
@@ -40,7 +29,7 @@
         <div class="registrationContainer">
             <h2 class="registrationTitle"> Register an Account </h2>
             <?php echo $confirmationMessage; ?>
-            <form action="registerUser.php" method="POST">
+            <form action="registrationAuth.php" method="POST">
                 <div class="formGroup">
                     <label for="username" class="formLabel"> Username: </label>
                     <input type="username" class="formInput" id="username" name="username" required> <br> <br>
@@ -58,7 +47,7 @@
         <?php if (strpos($confirmationMessage, 'successful') !== false): ?>
             <script>
                 const redirectConfig = {
-                    url: 'loginUser.php',
+                    url: 'adminDashboard.php',
                     delay: 2000
                 };
             </script>
