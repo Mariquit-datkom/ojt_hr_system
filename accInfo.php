@@ -125,6 +125,5 @@
 
     <script src="js/dropDownMenu.js"></script>
     <script src="js/backBtnKiller.js"></script>
-    <script src="js/autoLogOutOnClose.js"></script>
 </body>
 </html>
