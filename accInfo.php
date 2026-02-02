@@ -63,6 +63,7 @@
             <div class="user-menu-container">
                 <img src="assets/user_avatar.png" alt="user_avatar" class="user-avatar" id="user-avatar-btn">
                 <div class="dropdown-content" id="user-avatar-dropdown">
+                    <span class="mobile-username"><?php echo htmlspecialchars($currentUser); ?></span>
                     <a href="logout.php">Logout</a>
                 </div>
             </div>

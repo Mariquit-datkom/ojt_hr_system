@@ -52,7 +52,7 @@ header {
     border-radius: 4px;
 }
 
-.dropdown-content a {
+.dropdown-content a, .mobile-username {
     color: black;
     padding: 10px 15px;
     text-decoration: none;
@@ -64,14 +64,21 @@ header {
     background-color: #f1f1f1; 
 }
 
+.mobile-username {
+    display: none;
+}
+
 .nav-bar {
     background-color: #32749a;
     padding: 10px 20px;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .nav-links {
     display: flex;
     gap: 30px;
+    justify-content: flex-start;
 }
 
 .nav-item {
@@ -92,6 +99,7 @@ header {
     height: 0;
     overflow: hidden;
     visibility: hidden;
+    pointer-events: hidden;
 }
 
 .nav-item:hover {
@@ -104,8 +112,39 @@ header {
     cursor: default;
 }
 
-
-
 .show { 
     display: block !important; 
+}
+
+@media (max-width: 600px) {
+    .header-right > .username {
+        display: none;
+    }
+
+    .mobile-username {
+        display: block;
+        cursor: default;
+    }
+
+    .form-title-container {
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap; 
+    }
+
+    .form-title {
+        font-size: 18px; 
+        white-space: nowrap;
+    }
+
+    .nav-links {
+        gap: 25px;
+        justify-content: center;
+    }
+
+    .nav-item {
+        font-size: 0.85rem;
+        flex-shrink: 0;
+    }
 }
