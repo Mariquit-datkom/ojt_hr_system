@@ -25,9 +25,9 @@
     function createTables($pdo){
 
         $sql = "CREATE TABLE IF NOT EXISTS users (
-            db_id INT(11) AUTO_INCREMENT PRIMARY KEY,
-            username VARCHAR(50) NOT NULL,
-            password VARCHAR(255) NOT NULL,
+            user_id int(11) AUTO_INCREMENT PRIMARY KEY,
+            username varchar(50) NOT NULL,
+            password varchar(255) NOT NULL,
             last_ping int(11) DEFAULT 0
         )";
 
@@ -35,8 +35,8 @@
 
         $sql = "CREATE TABLE IF NOT EXISTS intern_list( 
             intern_no int(15) AUTO_INCREMENT PRIMARY KEY, 
-            intern_id_display varchar(20) NOT NULL, 
-            date_of_employment varchar(8) NOT NULL, 
+            user_id int(11) NOT NULL, 
+            date_of_employment varchar(15) NOT NULL, 
             intern_last_name varchar(20) NOT NULL, 
             intern_first_name varchar(30) NOT NULL, 
             intern_middle_initial varchar(2) NOT NULL,

@@ -12,6 +12,27 @@
     }
 
     $currentUser = $_SESSION['username'];
+    $currentId = $_SESSION['user_id'];
+
+    $query = "SELECT * FROM intern_list WHERE user_id = :user_id";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute(['user_id' => $currentId]);
+    $internData = $stmt->fetch();
+
+    if (!$internData) {
+        $internData = [
+            'intern_last_name' => '',
+            'intern_first_name' => '',
+            'intern_middle_initial' => '',
+            'date_of_employment' => '',
+            'intern_course' => '',
+            'intern_dept' => '',
+            'total_hours_needed' => '',
+            'accumulated_hours' => '',
+            'school' => ''
+        ];
+    }
+
     $currentPage = basename($_SERVER['PHP_SELF']);
 
     $confirmationMessage = "";
@@ -34,7 +55,7 @@
     <header>
         <div class="header-left">
             <img src="assets/company_logo.png" alt="company_logo" class="company-logo">
-            <span class="dashboard-title"> Dashboard </span>
+            <span class="dashboard-title"> Account Information </span>
         </div>
 
         <div class="header-right">
@@ -78,43 +99,52 @@
             <div class="row">
                 <div class="form-group">
                     <label for="last-name" class="form-label">Last Name: </label>
-                    <input type="text" name="last-name" id="last-name" class="general-input" required="required">                    
+                    <input type="text" name="last-name" id="last-name" class="general-input" placeholder="Enter last name" required="required"
+                    value="<?php echo htmlspecialchars($internData['intern_last_name']); ?>">                    
                 </div>
                 <div class="form-group">
                     <label for="first-name" class="form-label">First Name: </label>
-                    <input type="text" name="first-name" id="first-name" class="general-input" required="required">
+                    <input type="text" name="first-name" id="first-name" class="general-input" placeholder="Enter first name" required="required"
+                    value="<?php echo htmlspecialchars($internData['intern_first_name']); ?>">
                 </div>
                 <div class="form-group">
                     <label for="middle-initial" class="form-label">Middle Initial: </label>
-                    <input type="text" name="middle-initial" id="middle-initial" class="general-input middle-initial" required="required">
+                    <input type="text" name="middle-initial" id="middle-initial" class="general-input middle-initial" placeholder="Enter middle initial" required="required"
+                    value="<?php echo htmlspecialchars($internData['intern_middle_initial']); ?>">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group">
                     <label for="employment-date" class="form-label">Employment Date: </label>
-                    <input type="date" name="employment-date" id="employment-date" class="general-input employment-date" required="required">
+                    <input type="date" name="employment-date" id="employment-date" class="general-input employment-date" required="required"
+                    value="<?php echo htmlspecialchars($internData['date_of_employment']); ?>">
                 </div>
                 <div class="form-group">
                     <label for="course" class="form-label">Course: </label>
-                    <input type="text" name="course" id="course" class="general-input" required="required">
+                    <input type="text" name="course" id="course" class="general-input" placeholder="Enter course (e.g. BS Computer Science)" required="required"
+                    value="<?php echo htmlspecialchars($internData['intern_course']); ?>">
                 </div>
                 <div class="form-group">
                     <label for="division-or-section" class="form-label">Division / Section: </label>
-                    <input type="text" name="division-or-section" id="division-or-section" class="general-input" required="required">
+                    <input type="text" name="division-or-section" id="division-or-section" class="general-input" placeholder="Enter division or section" required="required"
+                    value="<?php echo htmlspecialchars($internData['intern_dept']); ?>">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group">
                     <label for="total-hours-needed" class="form-label">Total Hours Needed: </label>
-                    <input type="text" name="total-hours-needed" id="total-hours-needed" class="general-input hours-input" required="required">
+                    <input type="text" name="total-hours-needed" id="total-hours-needed" class="general-input hours-input" placeholder="Enter total hours needed" required="required"
+                    value="<?php echo htmlspecialchars($internData['total_hours_needed']); ?>">
                 </div>
                 <div class="form-group">
                     <label for="accumulated-hours" class="form-label">Accumulated Hours: </label>
-                    <input type="text" name="accumulated-hours" id="accumulated-hours" class="general-input hours-input" required="required">
+                    <input type="text" name="accumulated-hours" id="accumulated-hours" class="general-input hours-input" placeholder="Enter accumulated hours" required="required"
+                    value="<?php echo htmlspecialchars($internData['accumulated_hours']); ?>">
                 </div>
                 <div class="form-group">
                     <label for="school" class="form-label">School: </label>
-                    <input type="text" name="school" id="school" class="general-input school-input" required="required">
+                    <input type="text" name="school" id="school" class="general-input school-input" placeholder="Enter school" required="required"
+                    value="<?php echo htmlspecialchars($internData['school']); ?>">
                 </div>
             </div>
             <div class="btn-submit-container">

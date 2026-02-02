@@ -1,5 +1,5 @@
 .acc-info-container {
-    background-color: #f0f0f0;
+    background-color: #fff;
     padding: 5px 5% 15px 5%;
     margin: 40px auto 50px auto; 
     width: 85%;
@@ -22,7 +22,7 @@
 }
 
 .row {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -56,7 +56,7 @@
     font-size: 16px;
 }
 
-.middle-initial { max-width: 100px; }
+.middle-initial { max-width: 170px; }
 
 .btn-submit-container {
     display: flex;
@@ -97,7 +97,7 @@
         width: 100%;
     }
     
-    .middle-initial { max-width: 150px; }
+    .middle-initial { max-width: 100px; }
 
     .employment-date { max-width: 200px; }
 
