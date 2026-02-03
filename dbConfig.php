@@ -34,7 +34,8 @@
         $pdo->exec($sql);
 
         $sql = "CREATE TABLE IF NOT EXISTS intern_list( 
-            intern_id int(15) AUTO_INCREMENT PRIMARY KEY, 
+            intern_id int(15) AUTO_INCREMENT PRIMARY KEY,
+            intern_display_id varchar(20) AS (CONCAT('ojt', LPAD(intern_id, 3, '0'))) VIRTUAL,
             user_id int(11) NOT NULL, 
             date_of_employment varchar(15) NOT NULL, 
             intern_last_name varchar(20) NOT NULL, 
@@ -54,8 +55,8 @@
 
         $sql = "CREATE TABLE IF NOT EXISTS request_list( 
             request_no int(15) AUTO_INCREMENT PRIMARY KEY, 
-            request_no_display varchar(20) NOT NULL, 
-            request_date varchar(8) NOT NULL,
+            request_no_display varchar(20) AS (CONCAT('ojt-request-', LPAD(request_no, 5, '0'))) VIRTUAL, 
+            request_date varchar(15) NOT NULL,
             submitted_by varchar(50) NOT NULL, 
             request_subject varchar(50) NOT NULL,
             request_main varchar(500) NOT NULL,
@@ -64,6 +65,10 @@
         )";
 
         $pdo->exec($sql);
+    }
+
+    function createDbTriggers($pdo) {
+
     }
 
     function checkAdmin($pdo){

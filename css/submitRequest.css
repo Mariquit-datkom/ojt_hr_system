@@ -1,7 +1,7 @@
-.time-sheet-display-container, .time-sheet-input-container{
+.request-form-container {
     background-color: #fff;
     padding: 5px 5% 15px 5%;
-    margin: 20px auto 25px auto; 
+    margin: 30px auto 25px auto; 
     width: 85%;
     max-width: 1200px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -9,10 +9,11 @@
 }
 
 .form-title-container {   
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: #333 1px solid;
 }
 
 .form-title {
@@ -57,6 +58,20 @@
     font-size: 16px;
 }
 
+.request-input {
+    max-width: 100%;
+    width: 100%;
+    resize: none;      
+    min-height: 200px;   
+    line-height: 1.5;
+}
+
+.btn-submit-container {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
 .btn-submit {
     background-color: #32749a;
     color: white;
@@ -65,34 +80,4 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.time-sheet-table {
-    margin-bottom: 15px;
-}
-
-.table-headers, .table-cell-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.table-headers { 
-    border-top: 1px solid #333;
-    font-weight: bold;
- }
-
-.table-header-container, .table-cell{
-    flex: 1;
-    text-align: center;
-    border-bottom: 1px solid #333;
-    border-right: 1px solid #333;
-    padding: 15px;
-}
-
-.table-header-container:first-child, .table-cell:first-child{
-    border-left: 1px solid #333;
-}
-
-@media (max-width: 600px) {
-   
 }

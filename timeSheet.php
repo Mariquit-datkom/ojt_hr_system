@@ -60,7 +60,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/internDashboardPublic.css">
     <link rel="stylesheet" href="css/timeSheet.css">
-    <title>Dashboard</title>
+    <title>Time Sheet</title>
 </head>
 <body>
     <header>

@@ -4,6 +4,7 @@
     session_start();
 
     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
         $user_id = $_SESSION['user_id'];
         $lastName = $_POST['last-name'];
         $firstName = $_POST['first-name'];

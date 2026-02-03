@@ -23,7 +23,7 @@
             }
         }
 
-        header("Location: registerIntern.php");
+        header("Location: adminDashboard.php");
         exit();
     }
 ?>
