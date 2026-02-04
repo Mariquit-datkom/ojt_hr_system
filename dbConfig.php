@@ -15,7 +15,7 @@
         $pdo->exec("CREATE DATABASE IF NOT EXISTS `$db` CHARACTER SET $charset COLLATE $collate");
         $pdo->exec("USE `$db`");     
         
-        importSqlFile($pdo, 'assets/db_setup.sql');
+        importSqlFile($pdo, 'assets/dbSetup.sql');
 
      }  catch (PDOException $e) {
         die("Connection failed: ". $e->getMessage());

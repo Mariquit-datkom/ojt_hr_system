@@ -1,6 +1,7 @@
 <?php
 
     require_once 'dbConfig.php';
+    session_start();
 
     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = $_POST['username'];
@@ -23,7 +24,7 @@
             }
         }
 
-        header("Location: adminDashboard.php");
+        header("Location: registerIntern.php");
         exit();
     }
 ?>

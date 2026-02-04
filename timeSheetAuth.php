@@ -13,7 +13,7 @@
     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_id = $_SESSION['user_id'];
         $intern_display_id = $_SESSION['intern_display_id'];
-        $date = $_POST['date'];
+        $date = date("Y-m-d", strtotime($_POST['date']));
 
         $rawIn = $_POST['clock-in'];
         $rawOut = $_POST['clock-out'];
@@ -43,9 +43,18 @@
         if ($xlsx = SimpleXLSX::parse($fileToRead)) {
             $data = $xlsx->rows();
 
-            $data[] = [$date, $clockIn, $clockOut, $totalHours];
+            $headers = array_slice($data, 0, 3);
+            $entries = array_slice($data, 3);
 
-            $newXLSX = SimpleXLSXGen::fromArray($data)->saveAs($_SESSION['time_sheet_path']);
+            $entries[] = [$date, $clockIn, $clockOut, $totalHours];
+
+            usort($entries, function($a, $b) {
+                return strtotime($a[0]) - strtotime($b[0]);
+            });
+
+            $finalData = array_merge($headers, $entries);
+
+            $newXLSX = SimpleXLSXGen::fromArray($finalData)->saveAs($_SESSION['time_sheet_path']);
         }  
 
         $sql = "UPDATE intern_list SET time_sheet = :time_sheet WHERE user_id = :user_id";

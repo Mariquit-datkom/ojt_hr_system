@@ -37,6 +37,8 @@
     $tableRowsHtml = "";
 
     if (!empty($dataRows)) {
+        $dataRows = array_reverse($dataRows);
+        
         foreach ($dataRows as $row) {
             if (!empty(array_filter($row))) {
                 $tableRowsHtml .= '

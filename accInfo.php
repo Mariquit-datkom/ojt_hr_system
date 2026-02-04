@@ -28,7 +28,6 @@
             'intern_course' => '',
             'intern_dept' => '',
             'total_hours_needed' => '',
-            'accumulated_hours' => '',
             'school' => ''
         ];
     }
@@ -136,11 +135,6 @@
                     <label for="total-hours-needed" class="form-label">Total Hours Needed: </label>
                     <input type="text" name="total-hours-needed" id="total-hours-needed" class="general-input hours-input" placeholder="Enter total hours needed" required="required"
                     value="<?php echo htmlspecialchars($internData['total_hours_needed']); ?>">
-                </div>
-                <div class="form-group">
-                    <label for="accumulated-hours" class="form-label">Accumulated Hours: </label>
-                    <input type="text" name="accumulated-hours" id="accumulated-hours" class="general-input hours-input" placeholder="Enter accumulated hours" required="required"
-                    value="<?php echo htmlspecialchars($internData['accumulated_hours']); ?>">
                 </div>
                 <div class="form-group">
                     <label for="school" class="form-label">School: </label>
