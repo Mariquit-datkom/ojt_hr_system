@@ -18,8 +18,18 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `logintrial`
+-- Create database if it doesn't exist
 --
+
+CREATE DATABASE IF NOT EXISTS `ojt_hr_system` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Switch to the database
+--
+
+USE `ojt_hr_system`;
 
 -- --------------------------------------------------------
 

@@ -12,17 +12,7 @@
         $pdo = new PDO($dsn, $user, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $pdo->exec("CREATE DATABASE IF NOT EXISTS `$db` CHARACTER SET $charset COLLATE $collate");
-        $pdo->exec("USE `$db`");     
-        
-        importSqlFile($pdo, 'assets/dbSetup.sql');
-
-     }  catch (PDOException $e) {
-        die("Connection failed: ". $e->getMessage());
-    }
-
-    function importSqlFile($pdo, $filename) {
-       
+        $filename = 'assets/dbSetup.sql';
         if (file_exists($filename)) {
             $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, 1);
             $sql = file_get_contents($filename);
@@ -30,5 +20,8 @@
         } else {
             error_log("SQL file not found: " . $filename);
         }
+
+     }  catch (PDOException $e) {
+        die("Connection failed: ". $e->getMessage());
     }
 ?>
