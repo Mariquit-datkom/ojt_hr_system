@@ -231,6 +231,27 @@
 
     .request-status-tracker { 
         width: 100%;
+        min-height: 200px;
         order: 2; 
+    }
+
+    .tracker-scroll-area {
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    
+    .request-status-tracker { 
+        width: 100%;
+        order: 2; 
+    }
+
+    .tracker-scroll-area {
+        min-height: 50px !important; 
+        max-height: 250px !important;
+        overflow-y: auto !important;
+        display: block !important; 
+        padding-right: 10px;
     }
 }

@@ -119,6 +119,7 @@ header {
 }
 
 @media (max-width: 600px) {
+
     .header-right > .username {
         display: none;
     }
@@ -147,6 +148,27 @@ header {
 
     .nav-item {
         font-size: 0.85rem;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 500px) {   
+
+    header {
+        padding: 0  15px;
+    }
+    
+    .header-left {
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 25px;
+        justify-content: center;
+    }
+
+    .nav-item {
+        font-size: 0.75rem;
         flex-shrink: 0;
     }
 }

@@ -50,15 +50,12 @@
 }
 .general-input {
     width: 100%;
-    max-width: 500px;
     padding: 10px 12px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
 }
-
-.middle-initial { max-width: 170px; }
 
 .btn-submit-container {
     display: flex;
@@ -74,34 +71,4 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-@media (max-width: 600px) {
-    .form-title-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .row {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .form-group {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-    }
-
-    .general-input {
-        max-width: 100%;
-        width: 100%;
-    }
-    
-    .middle-initial { max-width: 100px; }
-
-    .employment-date { max-width: 200px; }
-
-    .hours-input { max-width: 230px; }
 }

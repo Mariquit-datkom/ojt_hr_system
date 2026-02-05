@@ -71,8 +71,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/internDashboardPublic.css">
-    <link rel="stylesheet" href="css/timeSheet.css">
+    <link rel="stylesheet" href="css/internDashboardPublic.css?v=1.2">
+    <link rel="stylesheet" href="css/timeSheet.css?v=1.2">
     <title>Time Sheet</title>
 </head>
 <body>
