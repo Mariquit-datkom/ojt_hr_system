@@ -30,11 +30,30 @@
                 $intern = $stmt->fetch();
 
                 if($intern) {
+                    $intern_first_name = $intern['intern_first_name'];
+                    $_SESSION['intern_first_name'] = $intern_first_name;
+
                     $intern_display_id = $intern['intern_display_id'];
                     $_SESSION['intern_display_id'] = $intern_display_id;
 
-                    $intern_first_name = $intern['intern_first_name'];
-                    $_SESSION['intern_first_name'] = $intern_first_name;
+                    $date_started = $intern['date_of_employment'];
+                    $_SESSION['date_started'] = $date_started;
+
+                    $intern_dept = $intern['intern_dept'];
+                    $_SESSION['intern_dept'] = $intern_dept;
+
+                    $intern_course = $intern['intern_course'];
+                    $_SESSION['intern_course'] = $intern_course;
+
+                    $school = $intern['school'];
+                    $_SESSION['school'] = $school;
+
+                    $total_hours_needed = $intern['total_hours_needed'];
+                    $_SESSION['total_hours_needed'] = $total_hours_needed;
+
+                    $accumulated_hours = $intern['accumulated_hours'];
+                    $_SESSION['accumulated_hours'] = $accumulated_hours;
+                    
                 }
 
             }  else  $redirectURL = 'adminDashboard.php';

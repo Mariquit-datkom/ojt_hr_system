@@ -33,6 +33,18 @@
         $stmt->bindParam(':user_id', $user_id);
 
         if ($stmt->execute()) {
+            $_SESSION['total_hours_needed'] = $totalHoursNeeded;
+
+            $accumulated_hours = $_SESSION['accumulated_hours'] ?? 0;
+            $remainingHours = $totalHoursNeeded - $accumulated_hours;
+            $_SESSION['remaining_hours'] = $remainingHours;
+
+            $sql = "UPDATE intern_list SET remaining_hours = :remaining_hours WHERE user_id = :user_id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':remaining_hours', $remainingHours);
+            $stmt->bindParam(':user_id', $user_id);
+            $stmt->execute();
+
             $_SESSION['accinfo_msg'] = "<p style='color: green;'>Account information saved successfully!</p>";
         } else {
             $_SESSION['accinfo_msg'] = "<p style='color: red;'>Error saving account information.</p>";

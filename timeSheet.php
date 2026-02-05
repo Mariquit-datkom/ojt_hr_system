@@ -2,6 +2,7 @@
     require_once 'dbConfig.php';
     require_once 'sessionChecker.php';
     include 'fetchTimeSheetData.php';
+    include 'x-head.php';
 
     header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
     header("Cache-Control: post-check=0, pre-check=0", false);
@@ -53,7 +54,7 @@
                         <span class="table-data">' . htmlspecialchars($row[2]) . '</span>
                     </div>
                     <div class="table-cell">
-                        <span class="table-data">' . htmlspecialchars($row[3]) . '</span>
+                        <span class="table-data">' . htmlspecialchars($row[3]) . ' hours</span>
                     </div>
                 </div>';
             }
@@ -97,19 +98,19 @@
         <div class="nav-links">
             <a href="internDashboard.php" class="nav-item
             <?php echo ($currentPage === 'internDashboard.php') ? 'active' : ''; ?>"
-            data-text="Dashboard">Dashboard
+            data-text="Dashboard"><i class = "fa fa-home"></i>Dashboard
             </a>
             <a href="accInfo.php" class="nav-item
             <?php echo ($currentPage === 'accInfo.php') ? 'active' : ''; ?>"
-            data-text="Account Info">Account Info
+            data-text="Account Info"><i class = "fa fa-user"></i>Account Info
             </a>
             <a href="javascript:void(0)" class="nav-item
             <?php echo ($currentPage === 'timeSheet.php') ? 'active' : ''; ?>"
-            data-text="Time Sheet">Time Sheet
+            data-text="Time Sheet"><i class = "fa fa-calendar-check"></i>Time Sheet
             </a>
             <a href="submitRequest.php" class="nav-item
             <?php echo ($currentPage === 'submitRequest.php') ? 'active' : ''; ?>"
-            data-text="Submit Request">Submit Request
+            data-text="Submit Request"><i class = "fa fa-paperclip"></i>Submit Request
             </a>
         </div>
     </nav>

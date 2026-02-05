@@ -48,6 +48,8 @@ CREATE TABLE IF NOT EXISTS `intern_list` (
   `intern_course` varchar(50) NOT NULL,
   `intern_dept` varchar(30) NOT NULL,
   `total_hours_needed` int(5) NOT NULL,
+  `accumulated_hours` int(5) NOT NULL,
+  `remaining_hours` int(5) NOT NULL,
   `school` varchar(100) NOT NULL,
   `time_sheet` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

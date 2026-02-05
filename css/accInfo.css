@@ -13,12 +13,14 @@
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .form-title {
     font-size: 24px;
     font-weight: bold;
     color: #333;
+    margin: 20px 0 10px 0;
 }
 
 .row {

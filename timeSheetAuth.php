@@ -8,7 +8,6 @@
     use Shuchkin\SimpleXLSXGen;
 
     include 'generateTimeSheet.php';
-    session_start();
 
     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_id = $_SESSION['user_id'];
@@ -22,6 +21,7 @@
         $clockOut = !empty($_POST['clock-out']) ? date("g:i A", strtotime($rawOut)) : '';
 
         $totalHours = "";
+        $totalHoursDecimal = 0;
         if (!empty($rawIn) && !empty($rawOut)) {
             $time1 = strtotime($rawIn);
             $time2 = strtotime($rawOut);
@@ -36,6 +36,7 @@
             $minutes = floor(($diff % 3600) / 60);
 
             $totalHours = ($minutes > 0) ? "{$hours} hours {$minutes} minutes" : "{$hours} hours";
+            $totalHoursDecimal = $diff / 3600;
         }
 
         $fileToRead = file_exists($_SESSION['time_sheet_path']) ? $_SESSION['time_sheet_path'] : $_SESSION['time_sheet_template'];
@@ -43,14 +44,38 @@
         if ($xlsx = SimpleXLSX::parse($fileToRead)) {
             $data = $xlsx->rows();
 
-            $data[] = [$date, $clockIn, $clockOut, $totalHours];
+            $data[] = [$date, $clockIn, $clockOut, $totalHoursDecimal];
+
+            $headers = array_shift($data); 
+            usort($data, function($a, $b) {
+                return strtotime($a[0]) <=> strtotime($b[0]);
+            });
+            array_unshift($data, $headers);
+
+            $newTotalAccumulated = 0;
+            foreach ($data as $index => $row) {
+                if ($index === 0) continue;                 
+                if (isset($row[3]) && is_numeric($row[3])) {
+                    $newTotalAccumulated += (float)$row[3];
+                }
+            }
 
             $newXLSX = SimpleXLSXGen::fromArray($data)->saveAs($_SESSION['time_sheet_path']);
         }  
 
-        $sql = "UPDATE intern_list SET time_sheet = :time_sheet WHERE user_id = :user_id";
+        $total_hours_needed = $_SESSION['total_hours_needed'];
+        $accumulated_hours = $newTotalAccumulated;
+        $remaining_hours = $total_hours_needed - $accumulated_hours;
+
+        $_SESSION['accumulated_hours'] = $accumulated_hours;
+        $_SESSION['remaining_hours'] = $remaining_hours;
+
+        $sql = "UPDATE intern_list SET time_sheet = :time_sheet, accumulated_hours = :accumulated_hours, remaining_hours = :remaining_hours
+        WHERE user_id = :user_id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':time_sheet', $_SESSION['time_sheet_path']);
+        $stmt->bindParam(':accumulated_hours', $accumulated_hours);
+        $stmt->bindParam(':remaining_hours', $remaining_hours);
         $stmt->bindParam(':user_id', $user_id);
         
         if ($stmt->execute()) {
