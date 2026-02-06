@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-container {
+    width: 100%;
+    margin: 30px auto 15px auto;
+    padding: 5px 5%;;
+}
+
+.welcome-message-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: #333 1px solid;
+    margin-bottom: 20px;
+}
+
+.welcome-message {
+    font-size: 1.8rem;
+    margin: 10px auto 10px 0;
+}
+
+.live-clock-container {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#current-date, #current-time {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+#current-date {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 400;
+    margin-right: 10px;
+}
+
+#current-time {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #32749a;
+}
