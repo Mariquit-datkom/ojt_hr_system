@@ -11,7 +11,7 @@ if (isset($_SESSION['username'])) {
     $user = $stmt->fetch();
 
     $upd = $pdo->prepare("UPDATE users SET last_ping = ? WHERE username = ?");
-    $upd->execute([$now, $uid]);
+    $upd->execute([$now, $username]);
 
     // logs current user out if heartbeat / ping is not updated for 20 secs
     if ($user && $user['last_ping'] > 0) {
