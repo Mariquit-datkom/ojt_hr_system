@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 <!-- Shows intern progress -->
-                <div class="progress-bar">
+                <div class="progress-bar clickable-progress" onclick="showProgressDetails()">
                     <h2 class="container-title">Intern Progress</h2>   
                     <!-- Progress Bar --> 
                     <div class="progress-track">
@@ -170,7 +170,37 @@
             </div>
         </div>
     </div>
-
+    <!-- Progress Tracker Pop Up -->
+    <div id="progressModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Progress Breakdown</h2>
+                <span class="close-btn" onclick="closeProgressModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="progress-detail-item">
+                    <strong>Total Hours Required:</strong> 
+                    <span><?php echo number_format($total_hours_needed, 2); ?> hrs</span>
+                </div>
+                <div class="progress-detail-item">
+                    <strong>Accumulated Hours:</strong> 
+                    <span style="color: #28a745; font-weight: bold;">
+                        <?php echo number_format($accumulated_hours, 2); ?> hrs
+                    </span>
+                </div>
+                <div class="progress-detail-item">
+                    <strong>Remaining Hours:</strong> 
+                    <span style="color: #dc3545; font-weight: bold;">
+                        <?php echo number_format($total_hours_needed - $accumulated_hours, 2); ?> hrs
+                    </span>
+                </div>
+                <div class="progress-visual-summary">
+                    <p>You have completed <strong><?php echo round($percentage, 1); ?>%</strong> of your internship.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Request Status Tracker Pop Up -->
     <div id="requestModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -193,5 +223,6 @@
     <script src="js/sendHeartbeat.js"></script>
     <script src="js/liveClock.js"></script>
     <script src="js/modalRequestWindow.js"></script>
+    <script src="js/modalProgressTracker.js"></script>
 </body>
 </html>
