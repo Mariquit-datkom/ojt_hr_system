@@ -29,7 +29,7 @@
     $percentage = ($total_hours_needed > 0) ? ($accumulated_hours / $total_hours_needed) * 100 : 0;
     $percentage = min(100, max(0, $percentage));
 
-    $sql_requests = "SELECT request_date, request_subject, request_status 
+    $sql_requests = "SELECT request_date, request_subject, request_status, request_main 
                 FROM request_list 
                 WHERE submitted_by = :intern_id 
                 ORDER BY request_date DESC";
@@ -154,7 +154,8 @@
                     <?php else: ?>
                         <?php foreach ($requests as $req): ?>
                             <!-- Request Entry -->
-                            <div class="request-item">
+                            <div class="request-item clickable-request" 
+                                onclick="showRequestDetails(<?php echo htmlspecialchars(json_encode($req)); ?>)">
                                 <div class="request-details">
                                     <span class="req-subject"><?php echo htmlspecialchars($req['request_subject']); ?></span>
                                     <span class="req-date"><?php echo date('M d, Y', strtotime($req['request_date'])); ?></span>
@@ -170,10 +171,27 @@
         </div>
     </div>
 
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalSubject">Request Details</h2>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Date:</strong> <span id="modalDate"></span></p>
+                <p><strong>Status:</strong> <span id="modalStatus" class="status-badge"></span></p>
+                <hr>
+                <p><strong>Message:</strong></p>
+                <div id="modalMainRequest" class="modal-text-area"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Backend Scripts -->
     <script src="js/dropDownMenu.js"></script>
     <script src="js/backBtnKiller.js"></script>
     <script src="js/sendHeartbeat.js"></script>
     <script src="js/liveClock.js"></script>
+    <script src="js/modalRequestWindow.js"></script>
 </body>
 </html>

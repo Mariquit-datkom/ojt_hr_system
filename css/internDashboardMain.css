@@ -157,6 +157,12 @@
     padding: 15px 0;
 }
 
+.clickable-request {
+    cursor: pointer;
+    transition: background-color 0.2s;
+    padding: 15px 10px;
+}
+
 .request-details {
     display: flex;
     flex-direction: column;
@@ -194,6 +200,67 @@
     background-color: #f8d7da;
     color: #721c24;
 }
+
+.clickable-request:hover {
+    background-color: #f9f9f9;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 0;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+.modal-header {
+    padding: 0 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-text-area {
+    background: #fcfcfc;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    margin-top: 10px;
+}
+
+.close-btn {
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-btn:hover { color: #333; }
 
 @media (max-width: 1100px) {
 
