@@ -81,7 +81,7 @@
             </a>
             <a href="timeSheet.php" class="nav-item
             <?php echo ($currentPage === 'timeSheet.php') ? 'active' : ''; ?>"
-            data-text="Time Sheet"><i class = "fas fa-calendar-alt"></i>Time Sheet
+            data-text="Time Sheet"><i class = "fa fa-calendar-check"></i>Time Sheet
             </a>
             <a href="submitRequest.php" class="nav-item
             <?php echo ($currentPage === 'submitRequest.php') ? 'active' : ''; ?>"
