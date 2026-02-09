@@ -24,7 +24,7 @@
             $stmt = $pdo->prepare($sql);
 
             // If user account creation is successful, copy user id to intern account info
-            if ($stmt->execute(['username' => $username, 'password' => $password])) {
+            if ($stmt->execute(['username' => $username, 'password' => $hashed_password])) {
                 $userId = $pdo->lastInsertId();
                 $internSql = "INSERT INTO intern_list (user_id) VALUES (:user_id)";
                 $internStmt = $pdo->prepare($internSql);
