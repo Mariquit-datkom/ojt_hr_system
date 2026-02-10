@@ -13,6 +13,16 @@
         exit();
     }
 
+    //Counts current interns inside db table
+    $sql = "SELECT COUNT(*) FROM intern_list";
+    $totalInterns = $pdo->query($sql)->fetchColumn();
+
+    //Count total pending requests
+    $status = "Pending";
+    $sql = $pdo->prepare("SELECT COUNT(*) FROM request_list WHERE request_status = ?");
+    $sql->execute([$status]);
+    $totalPendingRequests = $sql->fetchColumn();
+
     //Variable Declarations
     $currentUser = $_SESSION['username'];
     $currentPage = basename($_SERVER['PHP_SELF']);
@@ -41,6 +51,25 @@
             <div class="live-clock-container">
                 <div id="current-date"></div>
                 <div id="current-time"></div>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="left-container">
+                <div class="current-interns-number left-child-container" onclick="window.location.href = 'internsListPage.php'">
+                    <h2 class="container-label">Current Number of Interns</h2>
+                    <div class="result-container">
+                        <p><strong><?php echo htmlspecialchars($totalInterns) ?></strong> intern/s</p>
+                    </div>
+                </div>
+                <div class="current-pending-requests-number left-child-container" onclick="window.location.href = 'requestsPage.php'">
+                    <h2 class="container-label">Number of Pending Requests</h2>
+                    <div class="result-container">
+                        <p><strong><?php echo htmlspecialchars($totalPendingRequests) ?></strong> pending request/s</p>
+                    </div>
+                </div>
+            </div>
+            <div class="real-time-notif-container">
+                <h2 class="container-label">Notifications</h2>
             </div>
         </div>
     </div>

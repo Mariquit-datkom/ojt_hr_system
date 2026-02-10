@@ -20,7 +20,7 @@
                 LEFT JOIN intern_list i ON r.submitted_by = i.intern_display_id
                 ORDER BY r.submitted_by ASC, 
                         FIELD(r.request_status, 'Pending', 'Approved', 'Declined') ASC, 
-                        r.request_date DESC";
+                        r.request_time DESC";
                         
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -87,7 +87,7 @@
                     onclick="showRequestDetails(<?php echo htmlspecialchars(json_encode($reqs)); ?>, '<?php echo addslashes($fullName); ?>')">
                     <div class="request-details">
                         <span class="req-subject"> <?php echo htmlspecialchars($reqs['request_subject']); ?> - <?php echo $fullName; ?></span>
-                        <span class="req-date"><?php echo date('M d, Y', strtotime($reqs['request_date'])); ?></span>
+                        <span class="req-date"><?php echo date('M d, Y', strtotime($reqs['request_date'])); ?> - <?php echo date('h:i:s a', strtotime($reqs['request_time'])) ?></span>
                     </div>
                     <span class="status-badge <?php echo strtolower($reqs['request_status']); ?>">
                         <?php echo htmlspecialchars($reqs['request_status']); ?>

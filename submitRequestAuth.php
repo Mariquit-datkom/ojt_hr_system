@@ -4,8 +4,11 @@ require_once 'sessionChecker.php'; // session heartbeat checker
 
 // Form Submission Authentication
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    date_default_timezone_set('Asia/Manila');
+
     $subject = $_POST['request-subject'];
     $date = $_POST['date'];
+    $time = date('h:i:s a');
     $mainRequest = $_POST['main-request'];
     $submittedBy = $_SESSION['intern_display_id'];
     $status = "Pending";
@@ -14,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $pdo->beginTransaction(); //Doesn't save any changes permanently yet
 
         // Inserts form data into database table
-        $sql = "INSERT INTO request_list (request_date, submitted_by, request_subject, request_main, request_status) 
-                VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO request_list (request_date, request_time, submitted_by, request_subject, request_main, request_status) 
+                VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$date, $submittedBy, $subject, $mainRequest, $status]);
+        $stmt->execute([$date, $time, $submittedBy, $subject, $mainRequest, $status]);
 
         // Fetches formatted request number for dashboard display
         $requestNo = $pdo->lastInsertId();

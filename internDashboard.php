@@ -29,10 +29,10 @@
     $percentage = ($total_hours_needed > 0) ? ($accumulated_hours / $total_hours_needed) * 100 : 0;
     $percentage = min(100, max(0, $percentage));
 
-    $sql_requests = "SELECT request_date, request_subject, request_status, request_main 
+    $sql_requests = "SELECT request_date, request_time, request_subject, request_status, request_main 
                 FROM request_list 
                 WHERE submitted_by = :intern_id 
-                ORDER BY FIELD(request_status, 'Pending', 'Approved', 'Declined') ASC, request_date DESC";
+                ORDER BY FIELD(request_status, 'Pending', 'Approved', 'Declined') ASC, request_time DESC";
     $stmt_req = $pdo->prepare($sql_requests);
     $stmt_req->execute(['intern_id' => $intern_display_id]);
     $requests = $stmt_req->fetchAll(PDO::FETCH_ASSOC);
@@ -119,7 +119,7 @@
                                 onclick="showRequestDetails(<?php echo htmlspecialchars(json_encode($req)); ?>)">
                                 <div class="request-details">
                                     <span class="req-subject"><?php echo htmlspecialchars($req['request_subject']); ?></span>
-                                    <span class="req-date"><?php echo date('M d, Y', strtotime($req['request_date'])); ?></span>
+                                    <span class="req-date"><?php echo date('M d, Y', strtotime($req['request_date'])); ?> - <?php echo date('h:i:s a', strtotime($req['request_time'])) ?></span>
                                 </div>
                                 <span class="status-badge <?php echo strtolower($req['request_status']); ?>">
                                     <?php echo htmlspecialchars($req['request_status']); ?>

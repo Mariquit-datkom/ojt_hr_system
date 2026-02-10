@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `request_list` (
   `request_no` int(15) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `request_no_display` varchar(20) GENERATED ALWAYS AS (concat('ojt-request-',lpad(`request_no`,5,'0'))) VIRTUAL,
   `request_date` varchar(15) NOT NULL,
+  `request_time` varchar(15) NOT NULL,
   `submitted_by` varchar(50) NOT NULL,
   `request_subject` varchar(50) NOT NULL,
   `request_main` varchar(500) NOT NULL,
