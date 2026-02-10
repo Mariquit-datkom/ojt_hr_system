@@ -53,14 +53,17 @@
                 <div id="current-time"></div>
             </div>
         </div>
+        <!-- Content Container -->
         <div class="content-container">
             <div class="left-container">
+                <!-- Displays total current numbers -->
                 <div class="current-interns-number left-child-container" onclick="window.location.href = 'internsListPage.php'">
                     <h2 class="container-label">Current Number of Interns</h2>
                     <div class="result-container">
                         <p><strong><?php echo htmlspecialchars($totalInterns) ?></strong> intern/s</p>
                     </div>
                 </div>
+                <!-- Displays total pending requests -->
                 <div class="current-pending-requests-number left-child-container" onclick="window.location.href = 'requestsPage.php'">
                     <h2 class="container-label">Number of Pending Requests</h2>
                     <div class="result-container">
@@ -68,8 +71,12 @@
                     </div>
                 </div>
             </div>
+            <!-- Notification Table -->
             <div class="real-time-notif-container">
                 <h2 class="container-label">Notifications</h2>
+                <div id="notification-list" class="notification-list">
+                    <p>Loading notifications...</p>
+                </div>
             </div>
         </div>
     </div>

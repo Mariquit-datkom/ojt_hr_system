@@ -320,7 +320,7 @@ body { overflow: hidden; }
 @media (max-width: 500px) {
     .search-field { width: 120px }
 
-    .list-table { height: 280px }
+    .list-table { max-height: 230px }
 
     .modal-content { width: 85% }
 }

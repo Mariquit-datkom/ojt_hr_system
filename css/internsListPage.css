@@ -210,5 +210,7 @@ body { overflow: hidden; }
 .close-btn:hover { color: #333; }
 
 @media (max-width: 500px) {
+    .list-table { max-height: 230px }
+    
     .modal-content { width: 85% }
 }
