@@ -98,7 +98,7 @@
             <form method="POST" action="generateInternPdf.php" target="_blank">
                 <input type="hidden" name="intern_display_id" id="modal-intern-display-id">
                 <div id="modal-body"></div>
-                <input type="submit" class="generate-pdf-btn" value="Generate PDF file">
+                <input type="submit" class="generate-pdf-btn" value="Generate PDF">
             </form>
         </div>
     </div>

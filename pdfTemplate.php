@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('Asia/Manila');
+
 $fullName = htmlspecialchars($intern['intern_last_name'] . ", " . $intern['intern_first_name']);
 if (!empty(trim($intern['intern_middle_initial']))) {
     $fullName .= " " . htmlspecialchars($intern['intern_middle_initial']) . ".";
@@ -81,6 +83,21 @@ $hourProgress = htmlspecialchars($intern['accumulated_hours'] . " / " . $intern[
             </td>
             <td>
                 <?php echo htmlspecialchars($intern['school']) ?>
+            </td>
+        </tr>
+        <tr>
+            <td class="row-header">
+                DATE OF EMPLOYMENT
+            </td>
+            <td>
+                <?php echo htmlspecialchars($intern['date_of_employment']); ?>
+            </td>
+        </tr>
+    </table>
+    <table class="table-content">
+        <tr style="background-color: #b4b4b4;">
+            <td style="text-align: center; font-size: 11px;">
+                <?php echo date("M d, Y - h:i:s A") ?>
             </td>
         </tr>
     </table>
