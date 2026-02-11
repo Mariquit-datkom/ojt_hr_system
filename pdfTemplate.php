@@ -37,7 +37,7 @@ $hourProgress = htmlspecialchars($intern['accumulated_hours'] . " / " . $intern[
     <table class="table-content">
         <tr>
             <td class="row-header">
-                FULL NAME:
+                FULL NAME
             </td>
             <td>
                 <?php echo $fullName ?>
@@ -45,7 +45,7 @@ $hourProgress = htmlspecialchars($intern['accumulated_hours'] . " / " . $intern[
         </tr>
         <tr>
             <td class="row-header">
-                INTERN ID:
+                INTERN ID
             </td>
             <td>
                 <?php echo htmlspecialchars($intern['intern_display_id']); ?>
@@ -53,7 +53,7 @@ $hourProgress = htmlspecialchars($intern['accumulated_hours'] . " / " . $intern[
         </tr>
         <tr>
             <td class="row-header">
-                COURSE:
+                COURSE
             </td>
             <td>
                 <?php echo htmlspecialchars($intern['intern_course']); ?>
@@ -61,7 +61,7 @@ $hourProgress = htmlspecialchars($intern['accumulated_hours'] . " / " . $intern[
         </tr>
         <tr>            
             <td class="row-header">
-                ASSIGNED DEPARTMENT:
+                ASSIGNED DEPARTMENT
             </td>
             <td>
                 <?php echo htmlspecialchars($intern['intern_dept']); ?>
@@ -69,7 +69,7 @@ $hourProgress = htmlspecialchars($intern['accumulated_hours'] . " / " . $intern[
         </tr>
         <tr>
             <td class="row-header">
-                INTERN PROGRESS:
+                INTERN PROGRESS
             </td>
             <td>
                 <?php echo  $hourProgress?>
@@ -77,7 +77,7 @@ $hourProgress = htmlspecialchars($intern['accumulated_hours'] . " / " . $intern[
         </tr>
         <tr>
             <td class="row-header">
-                SCHOOL:
+                SCHOOL
             </td>
             <td>
                 <?php echo htmlspecialchars($intern['school']) ?>
