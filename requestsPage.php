@@ -138,5 +138,6 @@
     <script src="js/backBtnKiller.js"></script>
     <script src="js/sendHeartbeat.js"></script>
     <script src="js/modalRequestsList.js"></script>
+    <script src="js/notifRedirect.js"></script>
 </body>
 </html>

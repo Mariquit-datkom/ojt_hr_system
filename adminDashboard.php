@@ -74,9 +74,7 @@
             <!-- Notification Table -->
             <div class="real-time-notif-container">
                 <h2 class="container-label">Notifications</h2>
-                <div id="notification-list" class="notification-list">
-                    <p>Loading notifications...</p>
-                </div>
+                <div id="notification-list" class="notification-list"></div>
             </div>
         </div>
     </div>

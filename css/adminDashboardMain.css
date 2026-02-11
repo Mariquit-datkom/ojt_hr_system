@@ -83,6 +83,17 @@
     flex: 1;
 }
 
+.notification-item {
+    padding: 10px; 
+    border-bottom: 1px solid #eee; 
+    font-size: 0.9em;
+}
+
+.notification-item:hover {
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
 .container-label {
     margin: 15px 0 0 0 !important;
     padding-bottom: 10px;
