@@ -201,6 +201,16 @@ body { overflow: hidden; }
     align-items: center;
 }
 
+.generate-pdf-btn {
+    background-color: #32749a;
+    color: white;
+    font-weight: bolder;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 .close-btn {
     font-size: 28px;
     cursor: pointer;

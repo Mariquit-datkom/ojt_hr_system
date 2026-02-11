@@ -2,6 +2,10 @@ function showInternDetails(intern) {
     const modal = document.getElementById('intern-modal');
     const modalBody = document.getElementById('modal-body');
     const modalName = document.getElementById('modal-name');
+    const hiddenInput = document.getElementById('modal-intern-display-id');
+
+    hiddenInput.value = intern.intern_display_id;
+    console.log("Hidden input value set to: ", hiddenInput.value);
 
     // Set the Title
     let displayName = `${intern.intern_last_name}, ${intern.intern_first_name}`;

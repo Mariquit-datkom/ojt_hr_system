@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+}
+
+td {    
+    border: #000 1px solid;
+}
+
+.company-header {
+    width:100%;  
+    border-collapse: collapse; 
+    margin: 0;
+}
+
+.table-content {
+    width:100%; 
+    border-top: none;
+    box-sizing: border-box; 
+    border-collapse: collapse; 
+    margin: 0; 
+    padding: 0;
+}
+
+.table-content td {
+    border-top: none;
+    height: 30px;
+    text-align:center;
+}
+
+.row-header {
+    background-color: #fff82a;
+    width:25%;
+}
