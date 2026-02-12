@@ -10,9 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $date = $_POST['date'];
     $time = date('h:i:s a');
     $mainRequest = $_POST['main-request'];
+    $requestNoFromEdit = $_POST['request_no'] ?? null;
     $submittedBy = $_SESSION['intern_display_id'];
     $status = "Pending";
-    $requestNoFromEdit = $_POST['request_no'] ?? null;
 
     try {
         $pdo->beginTransaction(); //Doesn't save any changes permanently yet

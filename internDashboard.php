@@ -22,8 +22,8 @@
     $intern_dept = $_SESSION['intern_dept'] ?? "";
     $intern_course = $_SESSION['intern_course'] ?? "";
     $school = $_SESSION['school'] ?? "";
-    $accumulated_hours = $_SESSION['accumulated_hours'] ?? "";
-    $total_hours_needed = $_SESSION['total_hours_needed'] ?? "";
+    $accumulated_hours = $_SESSION['accumulated_hours'] ?? 0;
+    $total_hours_needed = $_SESSION['total_hours_needed'] ?? 0;
     $currentPage = basename($_SERVER['PHP_SELF']);
 
     $percentage = ($total_hours_needed > 0) ? ($accumulated_hours / $total_hours_needed) * 100 : 0;
