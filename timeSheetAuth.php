@@ -19,10 +19,15 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') 
     $clockOut = !empty($rawOut) ? date("g:i A", strtotime($rawOut)) : '';
 
     $totalHoursDecimal = 0;
+    $displayTime = "";
     if (!empty($rawIn) && !empty($rawOut)) {
         $diff = strtotime($rawOut) - strtotime($rawIn);
         if ($diff < 0) $diff += 86400; 
-        $totalHoursDecimal = $diff / 3600;
+        $totalHoursDecimal = round($diff / 3600, 2);
+
+        $hours = floor($diff / 3600);
+        $minutes = ($diff / 60) % 60;
+        $displayTime = "{$hours} hours and {$minutes} minutes";
     }
 
     $fileToRead = file_exists($_SESSION['time_sheet_path']) ? $_SESSION['time_sheet_path'] : $_SESSION['time_sheet_template'];
@@ -33,7 +38,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') 
         
         $allData = $sheet->toArray();
         
-        $newRow = [$date, $clockIn, $clockOut, $totalHoursDecimal];
+        $newRow = [$date, $clockIn, $clockOut, $totalHoursDecimal, $displayTime];
 
         $headers = array_slice($allData, 0, 3);
         $dataRows = array_slice($allData, 3);

@@ -58,7 +58,7 @@
                         <span class="table-data">' . htmlspecialchars($row[2]) . '</span>
                     </div>
                     <div class="table-cell">
-                        <span class="table-data">' . htmlspecialchars($row[3]) . ' hours</span>
+                        <span class="table-data">' . htmlspecialchars($row[4]) . '</span>
                     </div>
                 </div>';
             }
