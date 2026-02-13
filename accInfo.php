@@ -113,6 +113,21 @@
                     value="<?php echo htmlspecialchars($internData['school']); ?>">
                 </div>
             </div>
+            <div class="row">
+                <div class="form-group"><!-- HRD System Account Username -->
+                    <label for="account-username" class="form-label">Account Username: </label>
+                    <input type="text" name="account-username" id="account-username" class="general-input"
+                    value="<?php echo htmlspecialchars($currentUser); ?>">
+                </div>
+                <div class="form-group"><!-- Current Password -->
+                    <label for="current-password" class="form-label">Current Password: </label>
+                    <input type="text" name="current-password" id="current-password" class="general-input" placeholder="Enter current password">
+                </div>
+                <div class="form-group"><!-- New Password -->
+                    <label for="new-password" class="form-label">New Password: </label>
+                    <input type="text" name="new-password" id="new-password" class="general-input" placeholder="Enter new password">
+                </div>
+            </div>
             <div class="btn-submit-container">
                 <input type="submit" value="Save Account Information" class="btn-submit">
             </div>

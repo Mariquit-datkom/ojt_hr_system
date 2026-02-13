@@ -34,6 +34,9 @@
 
                 // Fetches user data if sql query is exeuted successfuly
                 if($intern) {
+                    $intern_id = $intern['intern_id'];
+                    $_SESSION['intern_id'] = $intern_id;
+
                     $intern_first_name = $intern['intern_first_name'];
                     $_SESSION['intern_first_name'] = $intern_first_name;
 
