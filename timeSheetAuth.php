@@ -27,7 +27,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') 
 
         $hours = floor($diff / 3600);
         $minutes = ($diff / 60) % 60;
-        $displayTime = "{$hours} hours and {$minutes} minutes";
+        $displayTime = $minutes === 0 ? "{$hours} hours" : "{$hours} hours and {$minutes} minutes";
     }
 
     $fileToRead = file_exists($_SESSION['time_sheet_path']) ? $_SESSION['time_sheet_path'] : $_SESSION['time_sheet_template'];
@@ -66,7 +66,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') 
         }
 
         $lastRow = $sheet->getHighestRow();
-        $fullRange = 'A1:D' . $lastRow;
+        $fullRange = 'A1:E' . $lastRow;
 
         // Apply Center + Borders to the whole used range
         $sheet->getStyle($fullRange)->applyFromArray([
@@ -82,7 +82,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') 
         ]);
 
         // Apply AutoFit to Columns
-        foreach (range('A', 'D') as $col) {
+        foreach (range('A', 'E') as $col) {
             $sheet->getColumnDimension($col)->setAutoSize(true);
         }
 
