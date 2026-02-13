@@ -120,7 +120,7 @@
                     <div id="modalMainRequest" class="modal-text-area"></div>
                 </div>
                 <div class="modal-row" id="attachmentSection" style="display: none";>
-                    <p><strong>Attachment:</strong></p>
+                    <p><strong>Attachment/s:</strong></p>
                     <div id="modalAttachment"></div>
                 </div>
                 <div class="modal-footer">

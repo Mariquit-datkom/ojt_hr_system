@@ -29,8 +29,7 @@
     $percentage = ($total_hours_needed > 0) ? ($accumulated_hours / $total_hours_needed) * 100 : 0;
     $percentage = min(100, max(0, $percentage));
 
-    $sql_requests = "SELECT request_no, request_date, request_time, request_subject, request_status, request_main 
-                FROM request_list 
+    $sql_requests = "SELECT * FROM request_list 
                 WHERE submitted_by = :intern_id AND request_status != 'Deleted'
                 ORDER BY FIELD(request_status, 'Pending', 'Approved', 'Declined') ASC, CAST(request_no AS UNSIGNED) DESC";
     $stmt_req = $pdo->prepare($sql_requests);
@@ -176,6 +175,10 @@
                     <div class="request-main">
                         <p><strong>Message:</strong></p>
                         <div id="modalMainRequest" class="modal-text-area"></div>
+                    </div>
+                    <div class="modal-row" id="attachmentSection" style="display: none";>
+                        <p><strong>Attachment/s:</strong></p>
+                        <div id="modalAttachment"></div>
                     </div>
                     <input type="submit" class="edit-request request-window-btn" id="edit-request" value="Edit">
                     <input type="submit" onclick="deletePendingRequest()" class="delete-request request-window-btn" id="delete-request" value="Delete">

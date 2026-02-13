@@ -293,7 +293,7 @@
     color: #333;
 }
 
-.request-main {
+.request-main, .modal-row {
     border-top: #dbdbdb 2px solid;
     margin-bottom: 15px;
 }
@@ -313,6 +313,19 @@
 
 .delete-request {
     background-color: #aa0a1a;  
+}
+
+.attachment-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s;
 }
 
 @media (max-width: 1100px) {
