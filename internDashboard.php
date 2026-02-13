@@ -180,8 +180,10 @@
                         <p><strong>Attachment/s:</strong></p>
                         <div id="modalAttachment"></div>
                     </div>
-                    <input type="submit" class="edit-request request-window-btn" id="edit-request" value="Edit">
-                    <input type="submit" onclick="deletePendingRequest()" class="delete-request request-window-btn" id="delete-request" value="Delete">
+                    <div class="btn-container">
+                        <input type="submit" class="edit-request request-window-btn" id="edit-request" value="Edit">
+                        <input type="button" onclick="deletePendingRequest()" class="delete-request request-window-btn" id="delete-request" value="Delete">
+                    </div>
                 </form>
             </div>
         </div>

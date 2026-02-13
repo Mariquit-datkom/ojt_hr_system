@@ -293,9 +293,14 @@
     color: #333;
 }
 
-.request-main, .modal-row {
+.request-main, .modal-row, .btn-container {
     border-top: #dbdbdb 2px solid;
     margin-bottom: 15px;
+}
+
+.btn-container {
+    margin-top: 15px;   
+    padding-top: 15px; 
 }
 
 .request-window-btn {  
@@ -317,6 +322,7 @@
 
 .attachment-link {
     display: flex;
+    width: fit-content;
     align-items: center;
     padding: 8px 12px;
     background-color: #f8f9fa;
