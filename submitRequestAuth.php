@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit();
             }
 
-            $uploadDir = 'uploads/' . $requestNoDisplay . '/';
+            $uploadDir = 'uploads/requests/' . $requestNoDisplay . '/';
             if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
 
             foreach ($_FILES['attachment']['name'] as $key => $name) {

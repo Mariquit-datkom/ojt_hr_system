@@ -11,8 +11,7 @@
 
 <?php
     require_once 'dbConfig.php'; //db connection
-    require_once 'sessionChecker.php'; //session heartbeat checker 
-
+    //require_once 'sessionChecker.php'; //session heartbeat checker
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +28,7 @@
         <div class="form-title-container">
             <h2 class="form-title">OJT Referral Form</h2>
         </div>
-        <form action="ojtReferralAuth.php" method="post" autocomplete="off">
+        <form action="ojtReferralAuth.php" method="post" enctype="multipart/form-data" autocomplete="off">
             <div class="row">
                 <div class="form-group">
                     <label for="reference" class="form-label">Reference Full Name:</label>
@@ -73,8 +72,8 @@
             </div>
         </form>
     </div>
-    
+
     <!-- Scripts -->
-     <script src="js/sendHeartbeat.js"></script>
+    <!--<script src="js/sendHeartbeat.jss"></script>-->
 </body>
 </html>
