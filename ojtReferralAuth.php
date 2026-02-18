@@ -36,13 +36,14 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<script> alert('File is too large. File can't exceed 10MB.') </script>";
             $isAllowed = false;
         }
-        if ($isAllowed && move_uploaded_file($_FILES['ojt-cv']['tmp_name'], $uploadDir . $fileName)) echo "<script> alert('File uploaded successfuly'); </script>";
-        else echo "<script> alert('There's an error with uploading your file, please try again later.') </script>";
+        if (!$isAllowed && !move_uploaded_file($_FILES['ojt-cv']['tmp_name'], $uploadDir . $fileName)) echo "<script> alert('There's an error with uploading your file, please try again later.') </script>";
 
         $pdo->prepare("UPDATE ojt_referral_list SET ojt_cv = ? WHERE ojt_referral_display_id = ?")->execute([$fileName, $ojtReferralDisplayId]);
         $pdo->commit();
 
-        echo "<script> alert('Referral form submitted successfuly') </script>";
+        $_SESSION['referral_msg'] = "<p style='color: green;'>Referral form submitted successfully</p>";
+        header("Location: ojtReferral.php");
+        exit();
 
     } catch (Exception $e) {
         $pdo->rollBack();

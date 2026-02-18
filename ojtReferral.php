@@ -11,7 +11,13 @@
 
 <?php
     require_once 'dbConfig.php'; //db connection
-    //require_once 'sessionChecker.php'; //session heartbeat checker
+    session_start();
+    
+    $confirmationMessage = "";
+    if (isset($_SESSION['referral_msg'])) {
+        $confirmationMessage = $_SESSION['referral_msg'];
+        unset($_SESSION['referral_msg']); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -69,6 +75,7 @@
             </div>
             <div class="btn-submit-container">
                 <input type="submit" value="Submit OJT Referral " class="btn-submit">
+                <?php echo $confirmationMessage ?>
             </div>
         </form>
     </div>

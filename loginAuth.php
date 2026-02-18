@@ -32,7 +32,7 @@
                 $stmt->execute(['user_id' => $_SESSION['user_id']]);
                 $intern = $stmt->fetch();
 
-                // Fetches user data if sql query is exeuted successfuly
+                // Fetches user data if sql query is exeuted successfully
                 if($intern) {
                     $intern_id = $intern['intern_id'];
                     $_SESSION['intern_id'] = $intern_id;
