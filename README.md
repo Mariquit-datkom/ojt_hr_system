@@ -44,5 +44,10 @@ git clone https://github.com/Mariquit-datkom/ojt_hr_system
 * Handling file streams and document rendering (PDF and Spreadsheet).
 * Developing a dynamic UI for better user experience.
 
+## :open_book: Notes
+* Default credentials for log in:
+    * username: admin
+    * password: 1234
+
 ## :office: Acknowledgement
 Special thanks to **Hayakawa Electronics (Phils.) Corp.** for the opportunity to learn and grow during my internship period.
