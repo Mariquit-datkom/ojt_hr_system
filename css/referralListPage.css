@@ -251,6 +251,11 @@ body {
     border-bottom: #ddd 1px solid;
 }
 
+.cv-label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
 .modal-text-area {
     margin-bottom: 10px;
 }
@@ -259,7 +264,7 @@ body {
     display: flex;
     flex-wrap: wrap; 
     gap: 8px;
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
 .attachment-item {
@@ -290,7 +295,7 @@ body {
 }
 
 .attachment-item {
-    margin: 5px 0;
+    margin-bottom: 5px;
 }
 
 .modal-footer {

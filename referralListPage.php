@@ -99,7 +99,7 @@
                     <p><strong>School:</strong> <span id="modalInternSchool"></span></p>
                 </div>
                 <div class="modal-row" id="attachmentSection" style="display: none";>
-                    <p><strong>Attachment/s:</strong></p>
+                    <p class="cv-label"><strong>Intern CV:</strong></p>
                     <div id="modalAttachment"></div>
                 </div>
                 <div class="modal-footer">
