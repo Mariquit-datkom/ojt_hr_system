@@ -24,8 +24,14 @@ The OJT HR System is designed to streamline basic human resource functions, spec
 git clone https://github.com/Mariquit-datkom/ojt_hr_system
 ```
 2. **Install dependencies**: Download and install all external libraries used: (Ensure you have PHP v8.1 or newer)
-    * [Font Awesome](https://fontawesome.com/download): Select _Download for Web_ and extract it to a folder named _libs_ inside the project folder.
-    * PhpSpreadsheet and mPDF: If you do not have _composer_ installed, make sure to go to this [link](https://getcomposer.org/Composer-Setup.exe) to download the installation file. Run it and follow the installation process.
+    * [Font Awesome](https://fontawesome.com/download): 
+        * Select _Download for Web_ and extract it to a folder named _libs_ inside the project folder.
+        * Open and edit x-head.php:
+        ```
+        <link rel="stylesheet" href="libs/(insert fontawesome folder name here e.g. fontawesome-free-7.0.0-web)/css/all.min.css">
+        ```
+    * PhpSpreadsheet and mPDF: 
+        * If you do not have _composer_ installed, make sure to go to this [link](https://getcomposer.org/Composer-Setup.exe) to download the installation file. Run it and follow the installation process.
         * With composer installed, open terminal in your project's root folder and run the following:
         ```
         composer require phpoffice/phpspreadsheet
