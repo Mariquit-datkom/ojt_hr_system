@@ -13,7 +13,7 @@ async function sendHeartbeat() {
             
             if (notifList && data.notifications) {
                 if (data.notifications.length === 0) {
-                    notifList.innerHTML = "<p style='color: #666;'>No new notifications...</p>";
+                    notifList.innerHTML = "<p style='color: #666;'>No pending requests...</p>";
                 } else {
                     notifList.innerHTML = data.notifications.map(notif => `
                         <div class="notification-item" onclick="window.location.href='requestsPage.php?openRequest=${notif.request_no}'">
